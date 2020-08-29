@@ -13,7 +13,7 @@ namespace frank::algo {
 template <std::size_t SIZE>
 search_result array_binary_search(std::span<int, SIZE> const sorted_array,
                                   int value_to_find) {
-  constexpr auto NO_BINARY_SEARCH = 8;
+  constexpr auto NO_BINARY_SEARCH = 17;
   if (SIZE < 1)
     return search_result{};
 

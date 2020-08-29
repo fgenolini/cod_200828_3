@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# CMake build folder, as used by Visual Studio Code by default
+build/

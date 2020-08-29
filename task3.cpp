@@ -16,7 +16,7 @@ static std::mt19937 mersenne_twister_engine(rd());
 int main(int, char *[]) {
   constexpr auto MAXIMAL_VALUE = std::numeric_limits<int>::max();
   constexpr auto MINIMAL_VALUE = std::numeric_limits<int>::min();
-  constexpr auto SEARCH_VALUE = 798243;
+  constexpr auto SEARCH_VALUE = 7982431;
 
   std::uniform_int_distribution<int> random_distribution(MINIMAL_VALUE,
                                                          MAXIMAL_VALUE);
@@ -114,9 +114,11 @@ int main(int, char *[]) {
     std::cerr << "  |   Inexistent item binary search value: "
               << results_dont_exist_binary.value << '\n';
 
-  if (results_linear.has_result || results_binary.has_result)
-    std::exit(EXIT_SUCCESS);
+  auto success = results_linear.has_result && results_binary.has_result;
+  if (!success)
+    std::cerr << "Test failed\n";
 
-  std::exit(EXIT_FAILURE);
-  return 1;
+  auto exit_code = success ? EXIT_SUCCESS : EXIT_FAILURE;
+  std::exit(exit_code);
+  return exit_code;
 }

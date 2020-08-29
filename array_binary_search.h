@@ -8,6 +8,8 @@
 
 namespace frank::algo {
 
+// Rudimentary improvement over linear search
+// by simple single "divide and conquer" / two step dichotomy
 template <std::size_t SIZE>
 search_result array_binary_search(std::span<int, SIZE> const sorted_array,
                                   int value_to_find) {

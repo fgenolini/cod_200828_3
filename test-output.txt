@@ -1,26 +1,26 @@
 Array length: 131415926
 Generating random numbers...
-First random element: -489276968
+First random element: -130884393
 Copying...
 Sorting...
-Sort duration: 10688332 us
-Min random element: -2147483643
-Max random element: 2147483643
-Value to find: 798238
-Value to find (exists): 798237
-Value to find (does not exist): 798238
+Sort duration: 10846071 us
+Min random element: -2147483639
+Max random element: 2147483638
+Value to find: 7982422
+Value to find (exists): 7982416
+Value to find (does not exist): 7982417
 Searching (linear)...
-  | Linear search duration: 43382 us
-  |    Linear search steps: 65732340
-  |    Linear search value: 798237
+  | Linear search duration: 32044 us
+  |    Linear search steps: 65949073
+  |    Linear search value: 7982416
 Searching (linear, inexistent value)...
-  | Inexistent item linear search duration: 43685 us
-  |    Inexistent item linear search steps: 65732341
+  | Inexistent item linear search duration: 46492 us
+  |    Inexistent item linear search steps: 65949074
 Searching (binary)...
-  | Binary search duration: 17 us
-  |    Binary search steps: 24377
-  |    Binary search value: 798237
+  | Binary search duration: 135 us
+  |    Binary search steps: 241110
+  |    Binary search value: 7982416
 Searching (binary, inexistent value)...
-  | Inexistent item binary search duration: 11 us
-  |    Inexistent item binary search steps: 24378
+  | Inexistent item binary search duration: 117 us
+  |    Inexistent item binary search steps: 241111
   

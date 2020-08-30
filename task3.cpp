@@ -3,36 +3,19 @@
 #include <cstdlib>
 #include <iostream>
 #include <limits>
-#include <random>
 #include <span>
 
 #include "array_binary_search.h"
 #include "large_arrays.h"
+#include "randomise_input.h"
 #include "timed_sort.h"
 
-static std::random_device rd{};
-static std::mt19937 mersenne_twister_engine(rd());
-
 int main(int, char *[]) {
-  constexpr auto MAXIMAL_VALUE = std::numeric_limits<int>::max();
-  constexpr auto MINIMAL_VALUE = std::numeric_limits<int>::min();
   constexpr auto SEARCH_VALUE = 7982431;
-
-  std::uniform_int_distribution<int> random_distribution(MINIMAL_VALUE,
-                                                         MAXIMAL_VALUE);
 
   std::span random_data{frank::algo::large_array};
   std::span sorted_data{frank::algo::sorted_array};
-  std::cerr << "Array length: " << random_data.size() << '\n';
-  std::cerr << "Generating random numbers...\n";
-  std::generate(random_data.begin(), random_data.end(),
-                [&]() { return random_distribution(mersenne_twister_engine); });
-  std::cerr << "First random element: " << random_data[0] << '\n';
-  std::cerr << "Copying...\n";
-  for (std::size_t i = 0; i < random_data.size(); ++i) {
-    sorted_data[i] = random_data[i];
-  }
-
+  frank::algo::randomise_input(random_data, sorted_data);
   frank::algo::timed_sort(sorted_data);
   auto min_data = sorted_data[0];
   auto max_data = sorted_data[sorted_data.size() - 1];

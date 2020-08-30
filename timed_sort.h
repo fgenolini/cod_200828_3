@@ -30,7 +30,7 @@ void timed_sort(std::span<int, SIZE> sorted_data,
   auto stop_sort = std::chrono::high_resolution_clock::now();
   auto sort_duration =
       duration_cast<std::chrono::microseconds>(stop_sort - start_sort);
-  std::cerr << " |  sort duration: " << sort_duration.count() << " us\n";
+  std::cerr << "  |  sort duration: " << sort_duration.count() << " us\n";
 
   std::cerr << "C \"Quick\" sorting...\n";
   auto start_qsort = std::chrono::high_resolution_clock::now();
@@ -39,7 +39,7 @@ void timed_sort(std::span<int, SIZE> sorted_data,
   auto stop_qsort = std::chrono::high_resolution_clock::now();
   auto qsort_duration =
       duration_cast<std::chrono::microseconds>(stop_qsort - start_qsort);
-  std::cerr << " | qsort duration: " << qsort_duration.count() << " us\n";
+  std::cerr << "  | qsort duration: " << qsort_duration.count() << " us\n";
 }
 
 } // namespace frank::algo

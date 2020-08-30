@@ -16,7 +16,7 @@ using search_func = search_result (*)(std::span<int, SIZE> const sorted_array,
                                       int value_to_find);
 
 template <std::size_t SIZE>
-search_result timed_search(std::span<int, SIZE> &sorted_data,
+search_result timed_search(std::span<int, SIZE> sorted_data,
                            std::string message, int value_to_find,
                            search_func<SIZE> untimed_search) {
   std::cerr << "Searching (" << message << ")...\n";
@@ -36,13 +36,13 @@ search_result timed_search(std::span<int, SIZE> &sorted_data,
 }
 
 template <std::size_t SIZE>
-search_result timed_linear_search(std::span<int, SIZE> &sorted_data,
+search_result timed_linear_search(std::span<int, SIZE> sorted_data,
                                   std::string message, int value_to_find) {
   return timed_search(sorted_data, message, value_to_find, array_linear_search);
 }
 
 template <std::size_t SIZE>
-search_result timed_binary_search(std::span<int, SIZE> &sorted_data,
+search_result timed_binary_search(std::span<int, SIZE> sorted_data,
                                   std::string message, int value_to_find) {
   return timed_search(sorted_data, message, value_to_find, array_binary_search);
 }

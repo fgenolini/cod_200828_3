@@ -7,7 +7,7 @@
 
 namespace frank::algo {
 
-template <std::size_t SIZE> void timed_sort(std::span<int, SIZE> &sorted_data) {
+template <std::size_t SIZE> void timed_sort(std::span<int, SIZE> sorted_data) {
   std::cerr << "Sorting...\n";
   auto start_sort = std::chrono::high_resolution_clock::now();
 

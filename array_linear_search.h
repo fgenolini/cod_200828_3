@@ -13,11 +13,11 @@ enum class search_direction { FORWARD, BACKWARD };
 
 template <std::size_t SIZE>
 search_result
-array_linear_search(std::span<int, SIZE> const sorted_array, int value_to_find,
-                    std::size_t start_index = 0,
-                    search_option nearest = search_option::EXACT,
-                    search_direction direction = search_direction::FORWARD,
-                    std::size_t max_steps = SIZE) {
+array_linear_search_2(std::span<int, SIZE> const sorted_array,
+                      int value_to_find, std::size_t start_index = 0,
+                      search_option nearest = search_option::EXACT,
+                      search_direction direction = search_direction::FORWARD,
+                      std::size_t max_steps = SIZE) {
   std::size_t search_steps{};
   int last_value{};
   std::size_t step = direction == search_direction::FORWARD ? 1 : -1;
@@ -81,6 +81,12 @@ array_linear_search(std::span<int, SIZE> const sorted_array, int value_to_find,
   no_value_found.search_steps = search_steps;
   no_value_found.value = last_value;
   return no_value_found;
+}
+
+template <std::size_t SIZE>
+search_result array_linear_search(std::span<int, SIZE> const sorted_array,
+                                  int value_to_find) {
+  return array_linear_search_2(sorted_array, value_to_find);
 }
 
 } // namespace frank::algo

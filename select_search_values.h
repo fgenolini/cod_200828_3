@@ -22,7 +22,7 @@ void select_search_values(std::span<int, SIZE> sorted_data, int &value_to_find,
   std::cerr << "Value to find: " << value_to_find << '\n';
   constexpr auto NEAREST = search_option::NEAREST;
   auto nearest_results_linear =
-      array_linear_search(sorted_data, value_to_find, 0, NEAREST);
+      array_linear_search_2(sorted_data, value_to_find, 0, NEAREST);
   if (nearest_results_linear.has_result) {
     value_to_find = nearest_results_linear.value;
     std::cerr << "Value to find (exists): " << value_to_find << '\n';
@@ -30,7 +30,7 @@ void select_search_values(std::span<int, SIZE> sorted_data, int &value_to_find,
 
   constexpr auto NEAREST_DONT_EXIST = search_option::NEAREST_DONT_EXIST;
   auto nearest_dont_exist =
-      array_linear_search(sorted_data, value_to_find, 0, NEAREST_DONT_EXIST);
+      array_linear_search_2(sorted_data, value_to_find, 0, NEAREST_DONT_EXIST);
   dont_exist_value_to_find = nearest_dont_exist.value;
   std::cerr << "Value to find (does not exist): " << dont_exist_value_to_find
             << '\n';

@@ -12,16 +12,16 @@ template <std::size_t SIZE>
 search_result left_search(std::span<int, SIZE> const sorted_array,
                           int value_to_find, std::size_t middle) {
   auto half_middle = middle / 2;
-  auto left_results = array_linear_search(
+  auto left_results = array_linear_search_2(
       sorted_array, value_to_find, middle, search_option::EXACT,
       search_direction::BACKWARD, half_middle);
   if (left_results.has_result || left_results.value < value_to_find)
     return left_results;
 
   auto left_steps = left_results.search_steps;
-  auto right_results =
-      array_linear_search(sorted_array, value_to_find, 0, search_option::EXACT,
-                          search_direction::FORWARD, half_middle);
+  auto right_results = array_linear_search_2(
+      sorted_array, value_to_find, 0, search_option::EXACT,
+      search_direction::FORWARD, half_middle);
   right_results.search_steps += left_steps;
   return right_results;
 }
@@ -30,16 +30,16 @@ template <std::size_t SIZE>
 search_result right_search(std::span<int, SIZE> const sorted_array,
                            int value_to_find, std::size_t middle) {
   auto half_middle = middle / 2;
-  auto right_results = array_linear_search(
+  auto right_results = array_linear_search_2(
       sorted_array, value_to_find, middle, search_option::EXACT,
       search_direction::FORWARD, half_middle);
   if (right_results.has_result || right_results.value > value_to_find)
     return right_results;
 
   auto right_steps = right_results.search_steps;
-  auto left_results =
-      array_linear_search(sorted_array, value_to_find, 0, search_option::EXACT,
-                          search_direction::BACKWARD, half_middle);
+  auto left_results = array_linear_search_2(
+      sorted_array, value_to_find, 0, search_option::EXACT,
+      search_direction::BACKWARD, half_middle);
   left_results.search_steps += right_steps;
   return left_results;
 }

@@ -2,43 +2,23 @@
 #include <chrono>
 #include <cstdlib>
 #include <iostream>
-#include <limits>
-#include <span>
 
 #include "array_binary_search.h"
 #include "large_arrays.h"
 #include "randomise_input.h"
+#include "select_search_values.h"
 #include "timed_sort.h"
 
 int main(int, char *[]) {
-  constexpr auto SEARCH_VALUE = 7982431;
-
   std::span random_data{frank::algo::large_array};
   std::span sorted_data{frank::algo::sorted_array};
   frank::algo::randomise_input(random_data, sorted_data);
   frank::algo::timed_sort(sorted_data);
-  auto min_data = sorted_data[0];
-  auto max_data = sorted_data[sorted_data.size() - 1];
-  std::cerr << "Min random element: " << min_data << '\n';
-  std::cerr << "Max random element: " << max_data << '\n';
 
-  auto value_to_find = ((max_data - min_data) / 2) + SEARCH_VALUE;
-  std::cerr << "Value to find: " << value_to_find << '\n';
-  constexpr auto NEAREST = frank::algo::search_option::NEAREST;
-  auto nearest_results_linear =
-      frank::algo::array_linear_search(sorted_data, value_to_find, 0, NEAREST);
-  if (nearest_results_linear.has_result) {
-    value_to_find = nearest_results_linear.value;
-    std::cerr << "Value to find (exists): " << value_to_find << '\n';
-  }
-
-  constexpr auto NEAREST_DONT_EXIST =
-      frank::algo::search_option::NEAREST_DONT_EXIST;
-  auto nearest_dont_exist = frank::algo::array_linear_search(
-      sorted_data, value_to_find, 0, NEAREST_DONT_EXIST);
-  auto dont_exist_value_to_find = nearest_dont_exist.value;
-  std::cerr << "Value to find (does not exist): " << dont_exist_value_to_find
-            << '\n';
+  int value_to_find{};
+  int dont_exist_value_to_find{};
+  frank::algo::select_search_values(sorted_data, value_to_find,
+                                    dont_exist_value_to_find);
 
   std::cerr << "Searching (linear)...\n";
   auto start = std::chrono::high_resolution_clock::now();

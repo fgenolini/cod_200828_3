@@ -20,6 +20,10 @@ void randomise_input(std::span<int, SIZE> random_data,
                                                          MAXIMAL_VALUE);
 
   std::cerr << "Array length: " << random_data.size() << '\n';
+  auto array_count = 2ULL;
+  auto memory_used = array_count * random_data.size() * sizeof(int);
+  auto memory_used_gb = memory_used / (1024.0 * 1024.0 * 1024.0);
+  std::cerr << "Memory used: " << memory_used_gb << " GiB\n";
   std::cerr << "Generating random numbers...\n";
   std::generate(random_data.begin(), random_data.end(),
                 [&]() { return random_distribution(mersenne_twister_engine); });

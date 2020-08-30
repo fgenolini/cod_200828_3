@@ -1,24 +1,26 @@
 Array length: 231415926
+Memory used: 1.72418 GiB
 Generating random numbers...
 Copying...
 Sorting...
-Sort duration: 18384937 us
-Min random element: -2147483637
-Max random element: 2147483619
-Value to find: 7982411
-Value to find (exists): 7982409
-Value to find (does not exist): 7982410
+Sort duration: 18392219 us
+Min random element: -2147483638
+Max random element: 2147483596
+Value to find: 7982400
+Value to find (exists): 7982290
+Value to find (does not exist): 7982291
 Searching (middle value)...
-  | middle value search duration: 52747 us
-  |    middle value search steps: 116139791
-  |    middle value search value: 7982409
+  | middle value search duration: 53299 us
+  |    middle value search steps: 116130798
+  |    middle value search value: 7982290
 Searching (inexistent value)...
-  | inexistent value search duration: 52166 us
-  |    inexistent value search steps: 116139792
+  | inexistent value search duration: 53143 us
+  |    inexistent value search steps: 116130799
 Searching (middle value binary)...
-  | middle value binary search duration: 330 us
-  |    middle value binary search steps: 431828
-  |    middle value binary search value: 7982409
+  | middle value binary search duration: 323 us
+  |    middle value binary search steps: 422835
+  |    middle value binary search value: 7982290
 Searching (inexistent value binary)...
-  | inexistent value binary search duration: 305 us
-  |    inexistent value binary search steps: 431829
+  | inexistent value binary search duration: 298 us
+  |    inexistent value binary search steps: 422836
+  

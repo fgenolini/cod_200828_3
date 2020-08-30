@@ -1,25 +1,24 @@
-Array length: 131415926
+Array length: 231415926
 Generating random numbers...
 Copying...
 Sorting...
-Sort duration: 10745655 us
-Min random element: -2147483591
-Max random element: 2147483627
-Value to find: 7982392
-Value to find (exists): 7982380
-Value to find (does not exist): 7982381
+Sort duration: 18384937 us
+Min random element: -2147483637
+Max random element: 2147483619
+Value to find: 7982411
+Value to find (exists): 7982409
+Value to find (does not exist): 7982410
 Searching (middle value)...
-  | middle value search duration: 44512 us
-  |    middle value search steps: 65948044
-  |    middle value search value: 7982380
+  | middle value search duration: 52747 us
+  |    middle value search steps: 116139791
+  |    middle value search value: 7982409
 Searching (inexistent value)...
-  | inexistent value search duration: 45184 us
-  |    inexistent value search steps: 65948045
+  | inexistent value search duration: 52166 us
+  |    inexistent value search steps: 116139792
 Searching (middle value binary)...
-  | middle value binary search duration: 182 us
-  |    middle value binary search steps: 240081
-  |    middle value binary search value: 7982380
+  | middle value binary search duration: 330 us
+  |    middle value binary search steps: 431828
+  |    middle value binary search value: 7982409
 Searching (inexistent value binary)...
-  | inexistent value binary search duration: 168 us
-  |    inexistent value binary search steps: 240082
-  
+  | inexistent value binary search duration: 305 us
+  |    inexistent value binary search steps: 431829

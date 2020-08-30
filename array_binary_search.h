@@ -8,44 +8,48 @@
 
 namespace frank::algo {
 
+// Search 2nd quarter, and then 1st quarter
 template <std::size_t SIZE>
 search_result left_search(std::span<int, SIZE> const sorted_array,
                           int value_to_find, std::size_t middle) {
   auto half_middle = middle / 2;
-  auto left_results = array_linear_search_2(
+  auto second_quarter = array_linear_search_2(
       sorted_array, value_to_find, middle, search_option::EXACT,
       search_direction::BACKWARD, half_middle);
-  if (left_results.has_result || left_results.value < value_to_find)
-    return left_results;
+  if (second_quarter.has_result || second_quarter.value < value_to_find)
+    return second_quarter;
 
-  auto left_steps = left_results.search_steps;
-  auto right_results = array_linear_search_2(
-      sorted_array, value_to_find, 0, search_option::EXACT,
+  auto first_quarter_steps = second_quarter.search_steps;
+  auto beginning = 0ULL;
+  auto first_quarter = array_linear_search_2(
+      sorted_array, value_to_find, beginning, search_option::EXACT,
       search_direction::FORWARD, half_middle);
-  right_results.search_steps += left_steps;
-  return right_results;
+  first_quarter.search_steps += first_quarter_steps;
+  return first_quarter;
 }
 
+// Search 3rd quarter, and then 4th quarter
 template <std::size_t SIZE>
 search_result right_search(std::span<int, SIZE> const sorted_array,
                            int value_to_find, std::size_t middle) {
   auto half_middle = middle / 2;
-  auto right_results = array_linear_search_2(
+  auto third_quarter = array_linear_search_2(
       sorted_array, value_to_find, middle, search_option::EXACT,
       search_direction::FORWARD, half_middle);
-  if (right_results.has_result || right_results.value > value_to_find)
-    return right_results;
+  if (third_quarter.has_result || third_quarter.value > value_to_find)
+    return third_quarter;
 
-  auto right_steps = right_results.search_steps;
-  auto left_results = array_linear_search_2(
-      sorted_array, value_to_find, 0, search_option::EXACT,
+  auto third_quarter_steps = third_quarter.search_steps;
+  auto end = sorted_array.size() - 1;
+  auto fourth_quarter = array_linear_search_2(
+      sorted_array, value_to_find, end, search_option::EXACT,
       search_direction::BACKWARD, half_middle);
-  left_results.search_steps += right_steps;
-  return left_results;
+  fourth_quarter.search_steps += third_quarter_steps;
+  return fourth_quarter;
 }
 
 // Rudimentary improvement over linear search
-// by simple single "divide and conquer" / two step dichotomy
+// by simple double "divide and conquer" / two step dichotomy (4 quarters)
 template <std::size_t SIZE>
 search_result array_binary_search(std::span<int, SIZE> const sorted_array,
                                   int value_to_find) {

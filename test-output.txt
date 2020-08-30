@@ -1,28 +1,30 @@
-Array length: 331415926
-Memory used: 2.46924 GiB
+Array length: 431415926
+Memory used: 4.82145 GiB
 Generating random numbers...
-  | random generation duration: 2011693 us
+  | random generation duration: 2687922 us
 Copying...
-  | copy duration: 450835 us
-Sorting...
- | sort duration: 26855268 us
-Min random element: -2147483634
-Max random element: 2147483576
-Value to find: 7982388
-Value to find (exists): 7982380
-Value to find (does not exist): 7982381
+  | copy duration: 1119802 us
+C++ STL sorting...
+ |  sort duration: 36779998 us
+C "Quick" sorting...
+ | qsort duration: 66597046 us
+Min random element: -2147483640
+Max random element: 2147483638
+Value to find: 7982422
+Value to find (exists): 7982368
+Value to find (does not exist): 7982369
 Searching (middle value)...
-  | middle value search duration: 108078 us
-  |    middle value search steps: 166325068
-  |    middle value search value: 7982380
+  | middle value search duration: 142503 us
+  |    middle value search steps: 216510071
+  |    middle value search value: 7982368
 Searching (inexistent value)...
-  | inexistent value search duration: 109492 us
-  |    inexistent value search steps: 166325069
+  | inexistent value search duration: 141471 us
+  |    inexistent value search steps: 216510072
 Searching (middle value binary)...
-  | middle value binary search duration: 471 us
-  |    middle value binary search steps: 617105
-  |    middle value binary search value: 7982380
+  | middle value binary search duration: 625 us
+  |    middle value binary search steps: 802108
+  |    middle value binary search value: 7982368
 Searching (inexistent value binary)...
-  | inexistent value binary search duration: 436 us
-  |    inexistent value binary search steps: 617106
+  | inexistent value binary search duration: 589 us
+  |    inexistent value binary search steps: 802109
   

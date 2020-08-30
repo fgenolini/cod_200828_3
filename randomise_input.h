@@ -13,7 +13,8 @@ extern std::mt19937 mersenne_twister_engine;
 
 template <std::size_t SIZE>
 void randomise_input(std::span<int, SIZE> random_data,
-                     std::span<int, SIZE> sorted_data) {
+                     std::span<int, SIZE> sorted_data,
+                     std::span<int, SIZE> qsorted_data) {
   constexpr auto MAXIMAL_VALUE = std::numeric_limits<int>::max();
   constexpr auto MINIMAL_VALUE = std::numeric_limits<int>::min();
 
@@ -21,7 +22,7 @@ void randomise_input(std::span<int, SIZE> random_data,
                                                          MAXIMAL_VALUE);
 
   std::cerr << "Array length: " << random_data.size() << '\n';
-  auto array_count = 2ULL;
+  auto array_count = 3ULL;
   auto memory_used = array_count * random_data.size() * sizeof(int);
   auto memory_used_gb = memory_used / (1024.0 * 1024.0 * 1024.0);
   std::cerr << "Memory used: " << memory_used_gb << " GiB\n";
@@ -40,8 +41,10 @@ void randomise_input(std::span<int, SIZE> random_data,
 
   // Slower than for loop:
   // std::copy(random_data.begin(), random_data.end(), sorted_data.begin());
-  for (std::size_t i = 0; i < random_data.size(); ++i)
+  for (std::size_t i = 0; i < random_data.size(); ++i) {
     sorted_data[i] = random_data[i];
+    qsorted_data[i] = random_data[i];
+  }
 
   auto stop_copy = std::chrono::high_resolution_clock::now();
   auto copy_duration =

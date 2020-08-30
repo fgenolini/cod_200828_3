@@ -10,8 +10,9 @@
 int main(int, char *[]) {
   std::span random_data{frank::algo::large_array};
   std::span sorted_data{frank::algo::sorted_array};
-  frank::algo::randomise_input(random_data, sorted_data);
-  frank::algo::timed_sort(sorted_data);
+  std::span qsorted_data{frank::algo::qsorted_array};
+  frank::algo::randomise_input(random_data, sorted_data, qsorted_data);
+  frank::algo::timed_sort(sorted_data, qsorted_data);
 
   int value_to_find{};
   int dont_exist_value_to_find{};

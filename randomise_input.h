@@ -24,9 +24,8 @@ void randomise_input(std::span<int, SIZE> random_data,
   std::generate(random_data.begin(), random_data.end(),
                 [&]() { return random_distribution(mersenne_twister_engine); });
   std::cerr << "Copying...\n";
-  for (std::size_t i = 0; i < random_data.size(); ++i) {
+  for (std::size_t i = 0; i < random_data.size(); ++i)
     sorted_data[i] = random_data[i];
-  }
 }
 
 } // namespace frank::algo

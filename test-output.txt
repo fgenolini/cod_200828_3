@@ -1,30 +1,34 @@
 Array length: 431415926
 Memory used: 4.82145 GiB
 Generating random numbers...
-  | random generation duration: 2687922 us
+  | random generation duration: 2684990 us
 Copying...
-  | copy duration: 1119802 us
+  | copy duration: 1141423 us
 C++ STL sorting...
- |  sort duration: 36779998 us
+  |  sort duration: 37106988 us
 C "Quick" sorting...
- | qsort duration: 66597046 us
-Min random element: -2147483640
-Max random element: 2147483638
-Value to find: 7982422
-Value to find (exists): 7982368
-Value to find (does not exist): 7982369
+  | qsort duration: 66027597 us
+Min random element: -2147483639
+Max random element: 2147483634
+Value to find: 7982420
+Value to find (exists): 7982386
+Value to find (does not exist): 7982387
 Searching (middle value)...
-  | middle value search duration: 142503 us
-  |    middle value search steps: 216510071
-  |    middle value search value: 7982368
+  | middle value search duration:    142071 us
+  | middle value    search clock:    142020 ticks
+  | middle value    search steps: 216507652
+  | middle value    search value:   7982386
 Searching (inexistent value)...
-  | inexistent value search duration: 141471 us
-  |    inexistent value search steps: 216510072
+  | inexistent value search duration:    141672 us
+  | inexistent value    search clock:    141607 ticks
+  | inexistent value    search steps: 216507653
 Searching (middle value binary)...
-  | middle value binary search duration: 625 us
-  |    middle value binary search steps: 802108
-  |    middle value binary search value: 7982368
+  | middle value binary search duration:       611 us
+  | middle value binary    search clock:       611 ticks
+  | middle value binary    search steps:    799689
+  | middle value binary    search value:   7982386
 Searching (inexistent value binary)...
-  | inexistent value binary search duration: 589 us
-  |    inexistent value binary search steps: 802109
+  | inexistent value binary search duration:       570 us
+  | inexistent value binary    search clock:       570 ticks
+  | inexistent value binary    search steps:    799690
   

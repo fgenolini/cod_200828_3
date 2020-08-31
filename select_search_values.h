@@ -9,8 +9,9 @@
 namespace frank::algo {
 
 template <std::size_t SIZE>
-void select_search_values(std::span<int, SIZE> const sorted_data,
-                          int &value_to_find, int &dont_exist_value_to_find) {
+void select_search_values(std::span<array_value, SIZE> const sorted_data,
+                          array_value &value_to_find,
+                          array_value &dont_exist_value_to_find) {
   constexpr auto SEARCH_VALUE = 7982431;
 
   auto min_data = sorted_data[0];

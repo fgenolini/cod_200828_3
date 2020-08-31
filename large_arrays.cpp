@@ -3,8 +3,8 @@
 
 namespace frank::algo {
 
-int large_array[LARGE_NUMBER];
-int sorted_array[LARGE_NUMBER];
-int qsorted_array[LARGE_NUMBER];
+array_value large_array[LARGE_NUMBER];
+array_value sorted_array[LARGE_NUMBER];
+array_value qsorted_array[LARGE_NUMBER];
 
 } // namespace frank::algo

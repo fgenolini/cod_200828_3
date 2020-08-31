@@ -4,10 +4,13 @@
 
 namespace frank::algo {
 
+using array_index = std::size_t;
+using array_value = int;
+
 struct search_result {
-  std::size_t array_index{};
+  array_index index{};
+  array_value value{};
   std::size_t search_steps{};
-  int value{};
   bool has_result{};
 };
 

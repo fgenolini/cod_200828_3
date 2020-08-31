@@ -5,11 +5,13 @@
 #include <iostream>
 #include <span>
 
+#include "search_result.h"
+
 namespace frank::algo {
 
 int ascending(void const *a, void const *b) {
-  auto va = *(int const *)a;
-  auto vb = *(int const *)b;
+  auto va = *(array_value const *)a;
+  auto vb = *(array_value const *)b;
   if (va < vb)
     return -1;
 
@@ -20,8 +22,8 @@ int ascending(void const *a, void const *b) {
 }
 
 template <std::size_t SIZE>
-void timed_sort(std::span<int, SIZE> sorted_data,
-                std::span<int, SIZE> qsorted_data) {
+void timed_sort(std::span<array_value, SIZE> sorted_data,
+                std::span<array_value, SIZE> qsorted_data) {
   std::cerr << "C++ STL sorting...\n";
   auto start_sort = std::chrono::high_resolution_clock::now();
   std::sort(sorted_data.begin(), sorted_data.end());

@@ -16,6 +16,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CommonSourcesList
   large_arrays.cpp
   randomise_input.cpp
+  setup_bins.cpp
   )
 
 add_executable(${APP_LOW_NAME} ${APP_LOW_NAME}.cpp ${CommonSourcesList})

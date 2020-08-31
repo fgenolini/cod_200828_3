@@ -6,24 +6,26 @@
 #include <random>
 #include <span>
 
+#include "search_result.h"
+
 namespace frank::algo {
 
 extern std::random_device rd;
 extern std::mt19937 mersenne_twister_engine;
 
 template <std::size_t SIZE>
-void randomise_input(std::span<int, SIZE> random_data,
-                     std::span<int, SIZE> sorted_data,
-                     std::span<int, SIZE> qsorted_data) {
-  constexpr auto MAXIMAL_VALUE = std::numeric_limits<int>::max();
-  constexpr auto MINIMAL_VALUE = std::numeric_limits<int>::min();
+void randomise_input(std::span<array_value, SIZE> random_data,
+                     std::span<array_value, SIZE> sorted_data,
+                     std::span<array_value, SIZE> qsorted_data) {
+  constexpr auto MAXIMAL_VALUE = std::numeric_limits<array_value>::max();
+  constexpr auto MINIMAL_VALUE = std::numeric_limits<array_value>::min();
 
-  std::uniform_int_distribution<int> random_distribution(MINIMAL_VALUE,
-                                                         MAXIMAL_VALUE);
+  std::uniform_int_distribution<array_value> random_distribution(MINIMAL_VALUE,
+                                                                 MAXIMAL_VALUE);
 
   std::cerr << "Array length: " << random_data.size() << '\n';
   auto array_count = 3ULL;
-  auto memory_used = array_count * random_data.size() * sizeof(int);
+  auto memory_used = array_count * random_data.size() * sizeof(array_value);
   auto memory_used_gb = memory_used / (1024.0 * 1024.0 * 1024.0);
   std::cerr << "Memory used: " << memory_used_gb << " GiB\n";
   std::cerr << "Generating random numbers...\n";
